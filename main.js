@@ -1,17 +1,32 @@
-console.log("MDN la référence de Javascript!".length); // la propriété length donne le nombre de caractère
-console.log("MDN la référence de Javascript!".charAt(2)); // la methode charAt() donne la position du caractère 
-console.log("MDN la référence de Javascript!".indexOf("de"));//La méthode indexOf() donne l'index de la première occurrence d'un tableau ou dans une chaîne de caractères
-console.log("MDN la référence de Javascript!".split(' '));// La méthode split() transforme une chaine de caractère en tableau
-console.log("MDN la référence de Javascript!".substr(4));// La méthode substr() extrait une chaine de caractère à une position ** obsolète **
-console.log("MDN la référence de Javascript!".substr(4,12));// La méthode substr() extrait une chaine de caractère à une position et le nombre de caractere ** obsolète **
-console.log("MDN la référence de Javascript!".slice(4,16));// La méthode slice() extrait une chaine de caractère à une position de depart et un point de fin
-console.log("MDN la référence de Javascript!".toUpperCase());// La méthode toUpperCase() met en majuscule une chaine
+let tab = [4, 2, 1, 3];
 
-// Ne pas employer le constructeur String()!
-let s1 = "MDN";
-let s2 = new String("MDN");
-console.log(s1 == s2);
-console.log(s1 === s2);
-console.log(typeof s1); // string (type primitif)
-console.log(typeof s2); // object (instance de String)
+console.log(tab.length); // 4
+tab.pop(); // Extraire de la fin
+console.log(tab); // [4, 2, 1]
+tab.push(3); // Ajouter à la fin
+console.log(tab); // [4, 2, 1, 3]
+tab.shift(); // Extraire du début
+console.log(tab); // [2, 1, 3]
+tab.unshift(4); // Ajouter au début
+console.log(tab); // [4, 2, 1, 3]
+console.log(tab.join('-')); // "4-2-1-3"
+tab.sort(); // Trier
+console.log(tab); // [1, 2, 3, 4]
+
+// Parcourir avec forEach()
+tab.forEach(function(e){
+	console.log(e);
+});
+
+// Traiter avec map()
+let tab2 = tab.map(function(e){
+	return e * 2;
+});
+console.log(tab2);
+
+// Filtrer avec filter()
+let tab3 = tab.filter(function (e) {
+	return e % 3 === 0;
+});
+console.log(tab3);
 
