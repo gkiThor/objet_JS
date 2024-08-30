@@ -1,9 +1,45 @@
-let guillaume=new Boulanger("Guillaume");
-let baguette=new Produit("baguette",0.20,1.20);
-let croissant=new Produit("croissant",0.25,1.50);
-let painDeMie=new Produit("pain de mie",0.50,4.50);
-guillaume.fabriquer(baguette,80);
-guillaume.fabriquer(croissant,60);
-guillaume.fabriquer(painDeMie,20);
-guillaume.bilan();
+// Une classe
+class Stylo{
+    constructor(marque){
+        this.marque = marque;
+    }
+
+    ecrire(){
+        console.log(`Le stylo ${this.marque} écrit`);
+    }
+
+	toString(){
+		return `stylo ${this.marque}`;
+	}
+}
+
+// Heritage
+class StyloBille extends Stylo{
+	constructor(marque, couleur){
+		super(marque);
+		this.couleur = couleur;
+	}
+
+	// Redefinir (Override)
+	ecrire(){
+		super.ecrire();
+        console.log(`Le stylo ${this.marque} ${this.couleur} écrit`);
+    }
+
+	fuir(){
+		console.log(`Le stylo ${this.marque} ${this.couleur} fuit`);
+	}
+}
+
+// Programme principal
+let stylo = new Stylo("Bic");
+let styloBille = new StyloBille("Bic", "rouge");
+console.log(styloBille);
+styloBille.ecrire();
+styloBille.fuir();
+console.log(`Cet objet est un ${stylo}`)// Appel implicite de toString()
+console.log(stylo.toString())// Appel explicite de toString()
+
+
+
 
